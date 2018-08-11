@@ -1,0 +1,27 @@
+2018-08-11 16:43:25 [scrapy] DEBUG: Crawled (404) <GET http://www.fundamentus.com.br/robots.txt> (referer: None)
+2018-08-11 16:43:26 [scrapy] DEBUG: Crawled (200) <GET http://www.fundamentus.com.br/detalhes.php?papel=TAEE11> (referer: None)
+2018-08-11 16:43:26 [scrapy] DEBUG: Scraped from <200 http://www.fundamentus.com.br/detalhes.php?papel=TAEE11>
+{'info': {'Papel': 'TAEE11', 'Cotação': '19,40', 'Tipo': 'UNT', 'Data últ cot': '10/08/2018', 'Empresa': 'TAESA UNT', 'Min 52 sem': '17,69', 'Setor': 'Energia Elétrica', 'Max 52 sem': '21,06', 'Subsetor': 'Energia Elétrica', 'Vol $ méd (2m)': '25.443.800', 'Valor de mercado': '6.683.280.000', 'Últ balanço processado': '30/06/2018', 'Valor da firma': '9.722.780.000', 'Nro. Ações': '1.033.500.000'}, 'oscilations': {'Dia': '-1,57%', 'Mês': '-1,27%', '30 dias': '0,52%', '12 meses': '-9,09%', '2018': '-1,52%', '2017': '10,92%', '2016': '40,73%', '2015': '-0,63%', '2014': '20,04%', '2013': '-6,78%'}, 'fundamentals': {'P/L': '7,85', 'LPA': '2,47', 'P/VP': '1,52', 'VPA': '12,80', 'P/EBIT': '7,44', 'Marg. Bruta': '82,6%', 'PSR': '5,37', 'Marg. EBIT': '72,3%', 'P/Ativos': '0,82', 'Marg. Líquida': '68,5%', 'P/Cap. Giro': '4,84', 'EBIT / Ativo': '11,0%', 'P/Ativ Circ Liq': '-3,88', 'ROIC': '11,2%', 'Div. Yield': '12,5%', 'ROE': '19,3%', 'EV / EBIT': '10,82', 'Liquidez Corr': '3,03', 'Giro Ativos': '0,15', 'Div Br/ Patrim': '0,71', 'Cres. Rec (5a)': '-6,6%'}, 'patrimonial_balance_data': {'Ativo': '8.193.880.000', 'Dív. Bruta': '3.151.880.000', 'Disponibilidades': '112.379.000', 'Dív. Líquida': '3.039.500.000', 'Ativo Circulante': '2.060.750.000', 'Patrim. Líq': '4.410.910.000'}, 'demonstrative_results_data': {'last_year': {'Receita Líquida': '1.243.410.000', 'EBIT': '898.406.000', 'Lucro Líquido': '851.412.000'}, 'last_quarter': {'Receita Líquida': '351.238.000', 'EBIT': '269.846.000', 'Lucro Líquido': '259.251.000'}}}
+2018-08-11 16:43:26 [scrapy] INFO: Closing spider (finished)
+2018-08-11 16:43:26 [scrapy] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 477,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 7779,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/404': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2018, 8, 11, 19, 43, 26, 717571),
+ 'item_scraped_count': 1,
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 6,
+ 'memusage/max': 51511296,
+ 'memusage/startup': 51507200,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2018, 8, 11, 19, 43, 25, 515854)}
+2018-08-11 16:43:26 [scrapy] INFO: Spider closed (finished)
