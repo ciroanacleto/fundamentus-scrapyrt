@@ -84,6 +84,9 @@ class PaperScrapper(scrapy.Spider):
         string = string.replace('_/_', '/')
         string = string.replace('__', '_')
         string = string.replace('/_', '/')
+        string = string.replace('(', '')
+        string = string.replace(')', '')
+        string = string.replace('/', '_')
         string = string.lower()
 
         return string
