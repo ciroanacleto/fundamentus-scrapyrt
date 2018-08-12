@@ -1,6 +1,6 @@
 # coding: utf-8
 import scrapy
-
+from unicodedata import normalize
 
 class PaperScrapper(scrapy.Spider):
     name = "fundamentus"
@@ -30,7 +30,8 @@ class PaperScrapper(scrapy.Spider):
             for row in table:
                 for j in range(0, len(row), 2):
                     if j % 2 == 0:
-                        company_info[row[j]] = row[j+1] 
+                        attr = self.transform_string(row[j])
+                        company_info[attr] = row[j+1] 
 
             return company_info
 
@@ -39,15 +40,17 @@ class PaperScrapper(scrapy.Spider):
             company_info = {'oscilations': {}, 'fundamentals': {}}
 
             for row in table:
+                attr = self.transform_string(row[0])
                 if table.index(row) == len(table) - 1:
-                    company_info['fundamentals'][row[0]] = row[1].replace('\n', '').strip()
+                    company_info['fundamentals'][attr] = row[1].replace('\n', '').strip()
                 else:
-                    company_info['oscilations'][row[0]] = row[1]
+                    company_info['oscilations'][attr] = row[1]
                     row = row[2:]
 
                     for j in range(0, len(row), 2):
                         if j % 2 == 0:
-                            company_info['fundamentals'][row[j]] = row[j+1].replace('\n', '').strip()
+                            attr = self.transform_string(row[j])
+                            company_info['fundamentals'][attr] = row[j+1].replace('\n', '').strip()
 
             return company_info
 
@@ -56,7 +59,8 @@ class PaperScrapper(scrapy.Spider):
             for row in table:
                 for j in range(0, len(row), 2):
                     if j % 2 == 0:
-                        company_info[row[j]] = row[j+1] 
+                        attr = self.transform_string(row[j])
+                        company_info[attr] = row[j+1] 
             return company_info
 
         elif extraction_type == 3:
@@ -64,13 +68,16 @@ class PaperScrapper(scrapy.Spider):
             company_info = {'last_year': {}, 'last_quarter': {}}
 
             for row in table:
-                company_info['last_year'][row[0]] = row[1]
-                company_info['last_quarter'][row[2]] = row[3]
+                attr1 = self.transform_string(row[0])
+                attr2 = self.transform_string(row[2])
+                company_info['last_year'][attr1] = row[1]
+                company_info['last_quarter'][attr2] = row[3]
 
             return company_info
 
 
-
+    def transform_string(self, string):
+        return normalize('NFKD', string).encode('ASCII', 'ignore').decode('ASCII').replace(' ', '_').lower()
 
 
     def retrieve_row(self, row):
