@@ -77,7 +77,16 @@ class PaperScrapper(scrapy.Spider):
 
 
     def transform_string(self, string):
-        return normalize('NFKD', string).encode('ASCII', 'ignore').decode('ASCII').replace(' ', '_').lower()
+        string = normalize('NFKD', string).encode('ASCII', 'ignore').decode('ASCII')
+        string = string.replace('$', '')
+        string = string.replace('.', '')
+        string = string.replace(' ', '_')
+        string = string.replace('_/_', '/')
+        string = string.replace('__', '_')
+        string = string.replace('/_', '/')
+        string = string.lower()
+
+        return string
 
 
     def retrieve_row(self, row):
